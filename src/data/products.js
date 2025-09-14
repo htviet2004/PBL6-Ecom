@@ -129,22 +129,6 @@ export const PRODUCTS = [
     ],
     description: 'Kích thích sáng tạo, nhiều mảnh ghép đa dạng.'
   },
-  {
-    id: 8,
-    name: 'Tai nghe Bluetooth',
-    price: 599000,
-    category: 'Điện thoại',
-    image: '/img/tai-nghe-bluetooth.jpg',
-    vouchers: ['Giảm 15k'],
-    shipping: { area: 'Toàn quốc', feeText: '10k - 20k' },
-    variants: { colors: ['Đen', 'Trắng'], sizes: [] },
-    shop: { name: 'VM Audio', rating: 4.5, followers: '22k', avatar: '/img/shop-avatar.png' },
-    specs: [
-      ['Kết nối', 'Bluetooth 5.3'],
-      ['Pin', '30 giờ nghe'],
-    ],
-    description: 'Âm thanh sống động, độ trễ thấp, sạc nhanh.'
-  },
 ]
 
 export function getProductById(id) {

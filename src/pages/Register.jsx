@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import './Register.css'
 
 export default function Register() {
   const [name, setName] = useState('')
@@ -13,10 +14,10 @@ export default function Register() {
   }
 
   return (
-    <div className="auth-wrapper">
-      <div className="auth-card">
+    <div className="register-wrapper">
+      <div className="register-card">
         <h2>Đăng ký</h2>
-        <form onSubmit={handleSubmit} className="auth-form">
+        <form onSubmit={handleSubmit} className="register-form">
           <label>
             Họ và tên
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
@@ -29,9 +30,9 @@ export default function Register() {
             Mật khẩu
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </label>
-          <button type="submit" className="auth-btn">Tạo tài khoản</button>
+          <button type="submit" className="register-btn">Tạo tài khoản</button>
         </form>
-        <p className="auth-alt">Đã có tài khoản? <Link to="/login">Đăng nhập</Link></p>
+        <p className="register-alt">Đã có tài khoản? <Link to="/login">Đăng nhập</Link></p>
       </div>
     </div>
   )

@@ -15,7 +15,6 @@ export default function ProductCard({ product, onAdd }) {
           </span>
           <span className="product-category">{product.category}</span>
         </div>
-        <button className="add-cart" onClick={() => onAdd?.(product)}>Thêm vào giỏ</button>
       </div>
     </article>
   );

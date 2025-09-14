@@ -7,6 +7,7 @@ import ProductGrid from "@components/ProductGrid.jsx";
 import AuthModal from '@components/AuthModal.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
 import { CATEGORIES, PRODUCTS } from './data/products.js'
+import './pages/Home.css'
 
 function Home() {
   const [query, setQuery] = useState("");

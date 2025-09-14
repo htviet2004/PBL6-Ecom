@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getProductById } from '../data/products'
+import Header from '../components/Header.jsx'
+import AuthModal from '@components/AuthModal.jsx'
 import '../assets/productDetail.css'
 
 export default function ProductDetail() {
@@ -10,14 +12,24 @@ export default function ProductDetail() {
   const [color, setColor] = useState('')
   const [size, setSize] = useState('')
   const [qty, setQty] = useState(1)
+  const [query, setQuery] = useState('')
+  const [isAuthOpen, setIsAuthOpen] = useState(false)
+  const [authMode, setAuthMode] = useState('login')
 
   if (!product) {
     return (
-      <div className="auth-wrapper">
-        <div className="auth-card">
+      <div className="product-detail">
+        <Header
+          query={query}
+          onQueryChange={setQuery}
+          onOpenLogin={() => { setAuthMode('login'); setIsAuthOpen(true) }}
+          onOpenRegister={() => { setAuthMode('register'); setIsAuthOpen(true) }}
+        />
+        <div className="pd-card">
           <h2>Không tìm thấy sản phẩm</h2>
           <p><Link to="/">Quay về trang chủ</Link></p>
         </div>
+        <AuthModal open={isAuthOpen} initialMode={authMode} onClose={() => setIsAuthOpen(false)} />
       </div>
     )
   }
@@ -34,6 +46,12 @@ export default function ProductDetail() {
 
   return (
     <div className="product-detail">
+      <Header
+        query={query}
+        onQueryChange={setQuery}
+        onOpenLogin={() => { setAuthMode('login'); setIsAuthOpen(true) }}
+        onOpenRegister={() => { setAuthMode('register'); setIsAuthOpen(true) }}
+      />
       <div className="product-detail-inner">
         <div className="product-detail-media pd-card">
           <img src={product.image} alt={product.name} />
@@ -141,6 +159,7 @@ export default function ProductDetail() {
           </section>
         )}
       </div>
+      <AuthModal open={isAuthOpen} initialMode={authMode} onClose={() => setIsAuthOpen(false)} />
     </div>
   )
 }
