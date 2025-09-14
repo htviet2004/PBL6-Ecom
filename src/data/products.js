@@ -129,6 +129,24 @@ export const PRODUCTS = [
     ],
     description: 'Kích thích sáng tạo, nhiều mảnh ghép đa dạng.'
   },
+  {
+    id: 8,
+    name: 'SamSung Galaxy S23',
+    price: 28990000,
+    category: 'Điện thoại',
+    image: ip15Image,
+    vouchers: ['Giảm 50k', 'Freeship Xtra'],
+    shipping: { area: 'Hồ Chí Minh', feeText: '0đ - 25k (tùy khu vực)' },
+    variants: { colors: ['Đen', 'Trắng', 'Xanh'], sizes: [] },
+    shop: { name: 'V-Market Official', rating: 4.9, followers: '230k', avatar: '/img/shop-avatar.png' },
+    specs: [
+      ['Thương hiệu', 'Samsung'],
+      ['Xuất xứ', 'Việt Nam / Nhập khẩu chính hãng'],
+      ['Bảo hành', '12 tháng'],
+      ['Model', 'A3100'],
+    ],
+    description: 'SamSung Galaxy S23 với chip A17 Pro, khung titan, camera mạnh mẽ, sạc USB‑C.'
+  },
 ]
 
 export function getProductById(id) {

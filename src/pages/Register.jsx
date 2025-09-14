@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './Register.css'
+import '../assets/Register.css'
 
 export default function Register() {
   const [name, setName] = useState('')

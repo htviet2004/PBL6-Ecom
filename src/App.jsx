@@ -1,13 +1,22 @@
 import { useState, useMemo } from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Header from "@components/Header.jsx";
 import CategoryNav from "@components/CategoryNav.jsx";
 import PromoAside from "@components/PromoAside.jsx";
 import ProductGrid from "@components/ProductGrid.jsx";
 import AuthModal from '@components/AuthModal.jsx'
+import Footer from '@components/Footer.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
+import Cart from './pages/Cart.jsx'
+import Checkout from './pages/Checkout.jsx'
+import UserProfile from './pages/UserProfile.jsx'
+import SearchResults from './pages/SearchResults.jsx'
+import CategoryPage from './pages/CategoryPage.jsx'
+import Contact from './pages/Contact.jsx'
+import About from './pages/About.jsx'
+import OrderSuccess from './pages/OrderSuccess.jsx'
 import { CATEGORIES, PRODUCTS } from './data/products.js'
-import './pages/Home.css'
+import './assets/Home.css'
 
 function Home() {
   const [query, setQuery] = useState("");
@@ -40,35 +49,10 @@ function Home() {
 
       <main className="content">
         <PromoAside />
-        <ProductGrid products={filteredProducts} onAdd={() => {}} />
+        <ProductGrid products={filteredProducts} />
       </main>
 
-      <footer className="footer">
-        <div className="footer-col">
-          <h5>Về V-Market</h5>
-          <ul>
-            <li>Giới thiệu</li>
-            <li>Tuyển dụng</li>
-            <li>Chính sách bảo mật</li>
-          </ul>
-        </div>
-        <div className="footer-col">
-          <h5>Hỗ trợ</h5>
-          <ul>
-            <li>Trung tâm trợ giúp</li>
-            <li>Hướng dẫn mua hàng</li>
-            <li>Trả hàng & Hoàn tiền</li>
-          </ul>
-        </div>
-        <div className="footer-col">
-          <h5>Kết nối</h5>
-          <ul>
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>TikTok</li>
-          </ul>
-        </div>
-      </footer>
+      <Footer />
 
       <AuthModal open={isAuthOpen} initialMode={authMode} onClose={() => setIsAuthOpen(false)} />
     </div>
@@ -81,6 +65,14 @@ export default function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/search" element={<SearchResults />} />
+        <Route path="/category/:categoryName" element={<CategoryPage />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/order-success" element={<OrderSuccess />} />
       </Routes>
     </BrowserRouter>
   )

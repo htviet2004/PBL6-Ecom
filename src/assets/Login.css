@@ -1,13 +1,17 @@
-/* Register Page Styles */
+/* Login Page Styles */
 
-.register-wrapper {
+/* Import Nunito Sans font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+.login-wrapper {
+  font-family: 'Nunito Sans', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   display: grid;
   place-items: center;
   padding: 24px;
 }
 
-.register-card {
+.login-card {
   width: 100%;
   max-width: 400px;
   background: var(--surface);
@@ -16,25 +20,25 @@
   padding: 24px;
 }
 
-.register-card h2 {
+.login-card h2 {
   margin: 0 0 20px 0;
   text-align: center;
   color: var(--text);
 }
 
-.register-form {
+.login-form {
   display: grid;
   gap: 16px;
 }
 
-.register-form label {
+.login-form label {
   display: grid;
   gap: 8px;
   font-size: 14px;
   color: var(--text);
 }
 
-.register-form input {
+.login-form input {
   padding: 12px 16px;
   border-radius: 10px;
   border: 1px solid #e5e7eb;
@@ -43,11 +47,11 @@
   transition: border-color 0.2s ease;
 }
 
-.register-form input:focus {
+.login-form input:focus {
   border-color: var(--brand);
 }
 
-.register-btn {
+.login-btn {
   margin-top: 8px;
   padding: 14px 16px;
   border-radius: 10px;
@@ -60,23 +64,23 @@
   transition: background-color 0.2s ease;
 }
 
-.register-btn:hover {
+.login-btn:hover {
   background: var(--brand-dark);
 }
 
-.register-alt {
+.login-alt {
   margin-top: 16px;
   text-align: center;
   color: var(--muted);
   font-size: 14px;
 }
 
-.register-alt a {
+.login-alt a {
   color: var(--brand);
   text-decoration: none;
   font-weight: 500;
 }
 
-.register-alt a:hover {
+.login-alt a:hover {
   text-decoration: underline;
 }

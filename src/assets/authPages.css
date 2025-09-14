@@ -53,7 +53,9 @@
 }
 
 /* Modal base */
+
 .auth-overlay {
+  font-family: 'Nunito Sans', system-ui, -apple-system, sans-serif;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
