@@ -1,4 +1,13 @@
-import ip15Image from '../assets/img/ip15.jpg'
+import ip15Image from '../assets/img/ip17.webp'
+import macm2 from '../assets/img/macm2.png'
+import hoodie from '../assets/img/hoodie.webp'
+import son from '../assets/img/son.png'
+import nckd from '../assets/img/nckd.jpg'
+import samba from '../assets/img/samba.avif'
+import lego from '../assets/img/lego.png'
+import zf6 from '../assets/img/zf6.png'
+
+
 
 export const CATEGORIES = [
   'Tất cả',
@@ -15,7 +24,7 @@ export const CATEGORIES = [
 export const PRODUCTS = [
   {
     id: 1,
-    name: 'iPhone 15 Pro',
+    name: 'iPhone 17 Pro Max - 1TB',
     price: 28990000,
     category: 'Điện thoại',
     image: ip15Image,
@@ -36,7 +45,7 @@ export const PRODUCTS = [
     name: 'MacBook Air M2',
     price: 25990000,
     category: 'Laptop',
-    image: '/img/macbook-air-m2.jpg',
+    image: macm2,
     vouchers: ['Giảm 100k'],
     shipping: { area: 'Toàn quốc', feeText: 'Freeship đơn từ 0đ' },
     variants: { colors: ['Bạc', 'Xám'], sizes: [] },
@@ -51,10 +60,10 @@ export const PRODUCTS = [
   },
   {
     id: 3,
-    name: 'Áo Hoodie Unisex',
+    name: 'Hoodie Nike',
     price: 299000,
     category: 'Thời trang',
-    image: '/img/ao-hoodie-unisex.jpg',
+    image: hoodie,
     vouchers: ['Giảm 10k'],
     shipping: { area: 'Toàn quốc', feeText: '15k - 30k' },
     variants: { colors: ['Đen', 'Trắng', 'Be'], sizes: ['S','M','L','XL'] },
@@ -67,10 +76,10 @@ export const PRODUCTS = [
   },
   {
     id: 4,
-    name: 'Son Môi Lì',
+    name: 'Son Dior Rouge 999',
     price: 199000,
     category: 'Mỹ phẩm',
-    image: '/img/son-moi-li.jpg',
+    image: son,
     vouchers: ['Freeship Xtra'],
     shipping: { area: 'Toàn quốc', feeText: '0đ - 20k' },
     variants: { colors: ['Đỏ gạch', 'Hồng đất', 'Cam cháy'], sizes: [] },
@@ -83,10 +92,10 @@ export const PRODUCTS = [
   },
   {
     id: 5,
-    name: 'Nồi Chiên Không Dầu',
+    name: 'Nồi Chiên Không Dầu Philips',
     price: 1599000,
     category: 'Gia dụng',
-    image: '/img/noi-chien-khong-dau.jpg',
+    image: nckd,
     vouchers: ['Giảm 30k'],
     shipping: { area: 'Toàn quốc', feeText: 'Freeship đơn từ 0đ' },
     variants: { colors: ['Đen'], sizes: [] },
@@ -99,10 +108,10 @@ export const PRODUCTS = [
   },
   {
     id: 6,
-    name: 'Giày Chạy Bộ',
+    name: 'Adidas Samba OG',
     price: 899000,
     category: 'Thể thao',
-    image: '/img/giay-chay-bo.jpg',
+    image: samba,
     vouchers: ['Giảm 20k'],
     shipping: { area: 'Toàn quốc', feeText: '15k - 25k' },
     variants: { colors: ['Đen', 'Xanh'], sizes: ['39','40','41','42','43'] },
@@ -115,10 +124,10 @@ export const PRODUCTS = [
   },
   {
     id: 7,
-    name: 'Bộ Lego Sáng Tạo',
+    name: 'Mercesdes F1 Lego',
     price: 499000,
     category: 'Đồ chơi',
-    image: '/img/bo-lego-sang-tao.jpg',
+    image: lego,
     vouchers: ['Giảm 10k', 'Freeship'],
     shipping: { area: 'Toàn quốc', feeText: '0đ - 20k' },
     variants: { colors: [], sizes: [] },
@@ -131,10 +140,10 @@ export const PRODUCTS = [
   },
   {
     id: 8,
-    name: 'SamSung Galaxy S23',
+    name: 'SamSung Z Fold 6',
     price: 28990000,
     category: 'Điện thoại',
-    image: ip15Image,
+    image: zf6,
     vouchers: ['Giảm 50k', 'Freeship Xtra'],
     shipping: { area: 'Hồ Chí Minh', feeText: '0đ - 25k (tùy khu vực)' },
     variants: { colors: ['Đen', 'Trắng', 'Xanh'], sizes: [] },

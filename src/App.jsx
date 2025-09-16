@@ -1,32 +1,33 @@
 import { useState, useMemo } from "react";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "@components/Header.jsx";
 import CategoryNav from "@components/CategoryNav.jsx";
 import PromoAside from "@components/PromoAside.jsx";
 import ProductGrid from "@components/ProductGrid.jsx";
-import AuthModal from '@components/AuthModal.jsx'
-import Footer from '@components/Footer.jsx'
-import ProductDetail from './pages/ProductDetail.jsx'
-import Cart from './pages/Cart.jsx'
-import Checkout from './pages/Checkout.jsx'
-import UserProfile from './pages/UserProfile.jsx'
-import SearchResults from './pages/SearchResults.jsx'
-import CategoryPage from './pages/CategoryPage.jsx'
-import Contact from './pages/Contact.jsx'
-import About from './pages/About.jsx'
-import OrderSuccess from './pages/OrderSuccess.jsx'
-import { CATEGORIES, PRODUCTS } from './data/products.js'
-import './assets/Home.css'
+import AuthModal from "@components/AuthModal.jsx";
+import Footer from "@components/Footer.jsx";
+import ProductDetail from "./pages/ProductDetail.jsx";
+import Cart from "./pages/Cart.jsx";
+import Checkout from "./pages/Checkout.jsx";
+import UserProfile from "./pages/UserProfile.jsx";
+import SearchResults from "./pages/SearchResults.jsx";
+import CategoryPage from "./pages/CategoryPage.jsx";
+import Contact from "./pages/Contact.jsx";
+import About from "./pages/About.jsx";
+import OrderSuccess from "./pages/OrderSuccess.jsx";
+import { CATEGORIES, PRODUCTS } from "./data/products.js";
+import "./assets/Home.css";
 
-function Home() {
+function Home({ currentUser, onLogin, onLogout, onRegister }) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("Tất cả");
-  const [isAuthOpen, setIsAuthOpen] = useState(false)
-  const [authMode, setAuthMode] = useState('login')
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [authMode, setAuthMode] = useState("login");
 
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((p) => {
-      const matchCategory = activeCategory === "Tất cả" || p.category === activeCategory;
+      const matchCategory =
+        activeCategory === "Tất cả" || p.category === activeCategory;
       const matchQuery = p.name.toLowerCase().includes(query.toLowerCase());
       return matchCategory && matchQuery;
     });
@@ -37,8 +38,16 @@ function Home() {
       <Header
         query={query}
         onQueryChange={setQuery}
-        onOpenLogin={() => { setAuthMode('login'); setIsAuthOpen(true) }}
-        onOpenRegister={() => { setAuthMode('register'); setIsAuthOpen(true) }}
+        onOpenLogin={() => {
+          setAuthMode("login");
+          setIsAuthOpen(true);
+        }}
+        onOpenRegister={() => {
+          setAuthMode("register");
+          setIsAuthOpen(true);
+        }}
+        currentUser={currentUser}
+        onLogout={onLogout}
       />
 
       <CategoryNav
@@ -54,16 +63,52 @@ function Home() {
 
       <Footer />
 
-      <AuthModal open={isAuthOpen} initialMode={authMode} onClose={() => setIsAuthOpen(false)} />
+      <AuthModal
+        open={isAuthOpen}
+        initialMode={authMode}
+        onClose={() => setIsAuthOpen(false)}
+        onLoginSuccess={(user) => {
+          onLogin(user);
+          setIsAuthOpen(false);
+        }}
+        onRegisterSuccess={(user) => {
+          onRegister(user);
+          setIsAuthOpen(false);
+        }}
+      />
     </div>
-  )
+  );
 }
 
 export default function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  function handleLogin(user) {
+    setCurrentUser(user);
+  }
+
+  function handleRegister(user) {
+    setCurrentUser(user);
+  }
+
+  function handleLogout() {
+    setCurrentUser(null);
+  }
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />} />
+        <Route
+          index
+          element={
+            <Home
+              currentUser={currentUser}
+              onLogin={handleLogin}
+              onRegister={handleRegister}
+              onLogout={handleLogout}
+            />
+          }
+        />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
@@ -75,5 +120,5 @@ export default function App() {
         <Route path="/order-success" element={<OrderSuccess />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }

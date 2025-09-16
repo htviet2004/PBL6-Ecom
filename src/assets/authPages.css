@@ -1,108 +1,154 @@
-/* Auth pages */
-.auth-wrapper {
+.login-wrapper,
+.register-wrapper {
+  font-family: var(--font-family);
   min-height: 100vh;
   display: grid;
   place-items: center;
   padding: 24px;
+  background: var(--bg);
 }
 
-/* Reuse .auth-card + form styles below for modal body */
-.auth-card {
+.login-card,
+.register-card {
   width: 100%;
+  max-width: 400px;
   background: var(--surface);
-  border-radius: 0 0 16px 16px;
-  box-shadow: var(--shadow);
-  padding: 16px 24px 24px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
 }
 
-.auth-card h2 {
-  margin: 0 0 16px 0;
+.login-card h2,
+.register-card h2 {
+  margin: 0 0 24px 0;
+  text-align: center;
+  color: var(--text);
+  font-weight: 700;
 }
 
-.auth-form {
+.login-form,
+.register-form {
   display: grid;
-  gap: 12px;
+  gap: 20px;
 }
 
-.auth-form label {
+.login-form label,
+.register-form label {
   display: grid;
-  gap: 6px;
+  gap: 8px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.login-form input,
+.register-form input {
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  transition: var(--transition);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.login-form input:focus,
+.register-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.login-btn,
+.register-btn {
+  padding: 14px 16px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--surface);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  background: var(--accent-light);
+}
+
+.login-alt,
+.register-alt {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
-.auth-form input {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  outline: none;
+.login-alt a,
+.register-alt a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.auth-btn {
-  margin-top: 4px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: none;
-  background: var(--brand);
-  color: #fff;
-  cursor: pointer;
-}
-
-.auth-alt {
-  margin-top: 12px;
-  color: var(--muted);
-}
-
-/* Modal base */
-
+/* Auth Modal */
 .auth-overlay {
-  font-family: 'Nunito Sans', system-ui, -apple-system, sans-serif;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   display: grid;
   place-items: center;
   z-index: 2000;
+  backdrop-filter: blur(4px);
 }
 
 .auth-modal {
-  position: relative;
   width: 100%;
-  max-width: 520px;
-  padding: 0 0 16px 0;
+  max-width: 400px;
+  margin: 16px;
 }
 
 .auth-tabs {
-  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr auto;
-  align-items: center;
-  gap: 8px;
   background: var(--surface);
-  border-radius: 16px 16px 0 0;
-  box-shadow: var(--shadow);
-  padding: 10px 10px 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 8px;
+  gap: 8px;
 }
 
 .auth-tab {
-  padding: 12px 14px;
-  border: none;
+  padding: 12px 16px;
   background: transparent;
+  border: none;
+  border-radius: var(--radius);
   cursor: pointer;
-  color: var(--muted);
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: var(--transition);
 }
 
 .auth-tab.active {
-  color: var(--text);
-  font-weight: 600;
-  border-bottom: 3px solid var(--brand);
+  background: var(--accent);
+  color: var(--surface);
 }
 
 .auth-close {
-  margin-left: auto;
-  height: 36px;
-  width: 36px;
-  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  background: var(--surface-hover);
   border: none;
-  background: #f3f4f6;
+  border-radius: var(--radius);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: 24px;
 }
