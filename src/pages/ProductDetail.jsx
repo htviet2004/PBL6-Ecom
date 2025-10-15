@@ -54,7 +54,9 @@ export default function ProductDetail() {
       />
       <div className="product-detail-inner">
         <div className="product-detail-media pd-card">
-          <img src={product.image} alt={product.name} />
+          <div className="pd-main-media">
+            <img src={product.image} alt={product.name} />
+          </div>
         </div>
         <div className="product-detail-info">
           <h1>{product.name}</h1>
@@ -130,7 +132,9 @@ export default function ProductDetail() {
               </div>
               <div className="shop-actions">
                 <button>Chat ngay</button>
-                <button>Xem shop</button>
+                <Link to={`/shop/${shop.id}`}>
+                  <button>Xem shop</button>
+                </Link>
               </div>
             </div>
           )}

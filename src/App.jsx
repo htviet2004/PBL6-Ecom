@@ -4,6 +4,7 @@ import Header from "@components/Header.jsx";
 import CategoryNav from "@components/CategoryNav.jsx";
 import PromoAside from "@components/PromoAside.jsx";
 import ProductGrid from "@components/ProductGrid.jsx";
+import HeroSlider from "@components/HeroSlider.jsx";
 import AuthModal from "@components/AuthModal.jsx";
 import Footer from "@components/Footer.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
@@ -15,8 +16,14 @@ import CategoryPage from "./pages/CategoryPage.jsx";
 import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
 import OrderSuccess from "./pages/OrderSuccess.jsx";
+import Store from "./pages/Store.jsx";
+import SellerDashboard from "./pages/SellerDashboard.jsx";
+import SellerOrders from "./pages/SellerOrders.jsx";
+import ProductAnalytics from "./pages/ProductAnalytics.jsx";
 import { CATEGORIES, PRODUCTS } from "./data/products.js";
 import "./assets/Home.css";
+import hero1 from "./assets/img/hero-slider1.png";
+import hero2 from "./assets/img/hero2.png";
 
 function Home({ currentUser, onLogin, onLogout, onRegister }) {
   const [query, setQuery] = useState("");
@@ -49,6 +56,12 @@ function Home({ currentUser, onLogin, onLogout, onRegister }) {
         currentUser={currentUser}
         onLogout={onLogout}
       />
+
+      {/* Hero slider placed above categories */}
+      <HeroSlider slides={[
+        { image: hero1, title: 'Mùa giảm giá lớn', subtitle: 'Ưu đãi lên đến 50%', cta: { href: '/category/khuyen-mai', label: 'Xem ngay' } },
+        { image: hero2, title: 'Bộ sưu tập mới', subtitle: 'Sản phẩm hot mùa này', cta: { href: '/category/bo-suu-tap', label: 'Khám phá' } }
+      ]} />
 
       <CategoryNav
         categories={CATEGORIES}
@@ -115,6 +128,10 @@ export default function App() {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
+        <Route path="/shop/:shopId" element={<Store />} />
+        <Route path="/seller/:shopId/dashboard" element={<SellerDashboard />} />
+  <Route path="/seller/:shopId/orders" element={<SellerOrders />} />
+  <Route path="/seller/:shopId/products/:productId/analytics" element={<ProductAnalytics />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/order-success" element={<OrderSuccess />} />
